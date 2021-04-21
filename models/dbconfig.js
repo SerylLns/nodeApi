@@ -1,10 +1,16 @@
 const mongoose = require('mongoose');
 
+
 mongoose.connect(
-  "mongodb+srv://SerylLns:8Cypk%25ZP3D.GfT%25@cluster0.fxkw3.mongodb.net/nodeAPI",
-  { useNewUrlParser: true, useUnifiedTopology: true },
+  `mongodb+srv://${process.env.DB_USER_PATH}@cluster0.fxkw3.mongodb.net/mern-project`,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  },
   (err) => {
-    if(!err) console.log("mongoDB connected");
-    else console.log("mongoDB ERRORS " + err);
+    if (!err) console.log("mongoDB connected");
+    else console.log("mongoDB ERRORS" + err);
   }
 );
